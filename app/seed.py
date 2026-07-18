@@ -55,5 +55,9 @@ INITIAL_SUBSCRIPTION_PLANS = [
 
 def seed_subscription_plans(db: Session) -> None:
     repository = SubscriptionPlanRepository(db)
+    seed_subscription_plans_repository(repository)
+
+
+def seed_subscription_plans_repository(repository) -> None:
     for plan in INITIAL_SUBSCRIPTION_PLANS:
         repository.upsert_seed(plan)
